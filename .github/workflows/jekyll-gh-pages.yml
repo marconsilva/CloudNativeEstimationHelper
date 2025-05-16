@@ -44,9 +44,11 @@ jobs:
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./release/wwwroot
-          destination: ./_site
+          destination: ./release/wwwroot
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: release/wwwroot
 
   # Deployment job
   deploy:
