@@ -28,8 +28,7 @@ jobs:
       run: dotnet publish src/CloudNativeEstimationHelper/CloudNativeEstimationHelper.csproj --configuration Release --output release/wwwroot
 
     - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@v4
+      uses: actions/deploy-pages@v4
       with:
-          folder: release/wwwroot # The folder the action should deploy.
           token: ${{ secrets.TOKEN_GITHUB }}
 
