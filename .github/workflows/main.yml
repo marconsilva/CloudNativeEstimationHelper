@@ -32,6 +32,12 @@ jobs:
     - name: Publish project
       run: dotnet publish src/CloudNativeEstimationHelper/CloudNativeEstimationHelper.csproj --configuration Release --output release/wwwroot
 
+    - name: Setup Node.js
+      uses: actions/upload-artifact@v4
+      with:
+        name: github-pages
+        path: release/wwwroot
+
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4
 
