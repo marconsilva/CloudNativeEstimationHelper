@@ -31,4 +31,5 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@v4
       with:
           folder: release/wwwroot # The folder the action should deploy.
+          token: ${{ secrets.TOKEN_GITHUB }}
 
