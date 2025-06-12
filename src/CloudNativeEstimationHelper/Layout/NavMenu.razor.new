@@ -1,15 +1,19 @@
-﻿@using Microsoft.AspNetCore.Components.Routing
+@page "/navmenu"
+@using Microsoft.AspNetCore.Components.Routing
 
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">Cloud Native Estimation Helper</a>  
+        <a class="navbar-brand" href="">CloudNativeEstimationHelper</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
     </div>
 </div>
 
-<div class="nav-scrollable">
+<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
     <nav class="flex-column">
         <div class="nav-item px-3">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
             </a>
         </div>
@@ -23,7 +27,7 @@
             <div class="@GetSubMenuCssClass("agentic")">
                 <div class="nav-item">
                     <a class="nav-link ps-3" href="/agentic/RAGAgent">
-                        <span class="bi bi-database-fill-nav-menu" aria-hidden="true"></span> RAG Agent
+                        <span class="bi bi-database-fill-nav-menu" aria-hidden="true"></span> Simple RAG Agent
                     </a>
                 </div>
                 <div class="nav-item">
@@ -48,7 +52,7 @@
             <div class="@GetSubMenuCssClass("microservices")">
                 <div class="nav-item">
                     <a class="nav-link ps-3" href="/microservices/AKSArq">
-                        <span class="bi bi-boxes-nav-menu" aria-hidden="true"></span> AKS Ms. Arch.
+                        <span class="bi bi-boxes-nav-menu" aria-hidden="true"></span> AKS Microservice Architecture
                     </a>
                 </div>
             </div>
@@ -103,6 +107,11 @@
 
     private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
     
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
     private void ToggleSubMenu(string menu)
     {
         if (expandedMenus.ContainsKey(menu))
