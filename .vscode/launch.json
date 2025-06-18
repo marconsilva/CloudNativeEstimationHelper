@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "C#: Cloud Native Estimation Helper Debug",
+            "name": "C#: CNEH Website Debug",
             "type": "dotnet",
             "request": "launch",
-            "projectPath": "${workspaceFolder}/src/CloudNativeEstimationHelper/CloudNativeEstimationHelper.csproj"
+            "projectPath": "${workspaceFolder}/src/CloudNativeEstimationHelperWebsite/CNEH_Web.csproj"
         }
 
     ]
